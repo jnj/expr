@@ -1,4 +1,4 @@
-organization := "DRW Holdings LLC"
+organization := "com.github"
 
 name := "expr"
 
