@@ -29,7 +29,7 @@ object ExprParser extends RegexParsers with PackratParsers {
     case (t: Node) => t
   }
 
-  lazy val term: PackratParser[Node] = ((term ~ "*" ~ factor) | (term <~ "/" ~ factor) | factor) ^^ {
+  lazy val term: PackratParser[Node] = ((term ~ "*" ~ factor) | (term ~ "/" ~ factor) | factor) ^^ {
     case ((t: Node) ~ "*" ~ (f: Node)) => Mul(t, f)
     case ((t: Node) ~ "/" ~ (f: Node)) => Div(t, f)
     case (f: Node) => f
